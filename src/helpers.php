@@ -10,9 +10,9 @@ if ( ! function_exists('stylesheets'))
      * @access public
      * @return mixed Value.
      */
-    function stylesheets($type='css',$id='default',$attr=array('media'=>''))
+    function stylesheets($id='default',$attr=array('media'=>''))
     {
-        return \HTML::style(App::make('minify')->process($type,$id),$attr);
+        return \HTML::style(App::make('minify')->process('css',$id),$attr);
 
         
         // if (App::environment() !== 'local')
