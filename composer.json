@@ -1,0 +1,25 @@
+{
+    "name": "jinggo/minify",
+    "description": "This is pork from ceesvanegmond. It just enhanced loading of css and js",
+    "authors": [
+        {
+            "name": "Jinggo Villamor",
+            "email": "jinggo.villamor@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.x",
+        "natxet/cssmin": "dev-master",
+        "linkorb/jsmin-php": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Jinggo\\Minify": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "minimum-stability": "dev"
+}
