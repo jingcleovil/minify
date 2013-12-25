@@ -27,9 +27,8 @@ return array(
     */
     'css' => array(
         'default' => array(
-            'css1.css',
-            'css2.css',
-            'css3.css'
+            'bootstrap.css',
+            'style.css'
         )
     ),
 

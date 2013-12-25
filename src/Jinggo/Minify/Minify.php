@@ -134,7 +134,10 @@ class Minify {
 
 		foreach($files as $f)
 		{
+			
 			if(! \File::exists($this->path.$f)) continue;
+
+			$file[] = $f;
 
 			if($this->css3)
 			{
@@ -145,9 +148,9 @@ class Minify {
 				$file[] = $target;
 			}
 
-			$file[] = $f;
+			
 		}
-
+		
 		return $this->minifyCss($file);
 
 	}

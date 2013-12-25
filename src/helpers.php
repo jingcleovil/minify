@@ -10,22 +10,28 @@ if ( ! function_exists('stylesheets'))
      * @access public
      * @return mixed Value.
      */
-    function stylesheets($args,$attr=array('media'=>''))
+    function stylesheets($type='css',$id='default',$attr=array('media'=>''))
     {
-        $args = cast_to_array($args);
+        return \HTML::style(App::make('minify')->process($type,$id),$attr);
+
         
-        if (App::environment() !== 'local')
-            return \HTML::style(App::make('minify')->minifyCss($args),$attr);
+        // if (App::environment() !== 'local')
+           
 
-        $path = Config::get('minify.css_path', Config::get('minify::css_path', '/css/'));
+        // $args = Config::get('minify::css');
 
-        $return = '';
-        foreach ($args as $arg)
-        {
-            $return .= \HTML::style($path . $arg,$attr);
-        }
+   
+        // $args = cast_to_array($args['default']);
 
-        return $return;
+        // $path = Config::get('minify.css_path', Config::get('minify::css_path', '/css/'));
+
+        // $return = '';
+        // foreach ($args as $arg)
+        // {
+        //     $return .= \HTML::style($path . $arg,$attr);
+        // }
+
+        // return $return;
     }
 }
 
