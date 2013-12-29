@@ -30,7 +30,7 @@ if ( ! function_exists('scripts'))
     {
         if($path)
         {
-            return App::make('minify')->process('js','default');
+            return App::make('minify')->process('js',$id);
         }
         else
         {
