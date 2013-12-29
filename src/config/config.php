@@ -31,6 +31,12 @@ return array(
             'style.css'
         )
     ),
+    
+    'js' => array(
+        'default' => array(
+            'script.js'
+        )
+    ),
 
     'css3_browsers' => array(
             "Internet Explorer" => 9,

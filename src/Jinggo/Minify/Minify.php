@@ -66,9 +66,7 @@ class Minify {
 
 	public function __construct()
 	{
-		$this->path = public_path() . \Config::get('minify::css_path');	
-
-		$this->buildpath = $this->path . \Config::get('minify::css_build_path');
+		
 
 		$this->browsers = \Config::get('minify::css3_browsers');
 
@@ -119,9 +117,19 @@ class Minify {
 	 */
 	public function process($type,$id)
 	{
+		$this->path = public_path() . \Config::get("minify::{$type}_path");	
+		$this->buildpath = $this->path . \Config::get("minify::{$type}_build_path");
+
 		$user_agent = $this->getBrowser();
 
-		$fconfig = \Config::get('minify::css');
+		if($type === "css")
+		{
+			$fconfig = \Config::get('minify::css');
+		}
+		else if($type === "js")
+		{
+			$fconfig = \Config::get('minify::js');
+		}
 
 		if(!isset($fconfig[$id])) 
 		{
@@ -139,19 +147,29 @@ class Minify {
 
 			$file[] = $f;
 
-			if($this->css3)
+			if($type === "css")
 			{
-				$target = str_replace(".$type", ".css3.".$type, $f);
+				if($this->css3)
+				{
+					$target = str_replace(".$type", ".css3.".$type, $f);
 
-				if(! \File::exists($this->path.$target)) continue;
-				
-				$file[] = $target;
+					if(! \File::exists($this->path.$target)) continue;
+					
+					$file[] = $target;
+				}
 			}
-
-			
 		}
-		
-		return $this->minifyCss($file);
+
+
+		if($type === "css")
+		{
+			return $this->minifyCss($file);
+		}
+		else if($type === "js")
+		{
+			
+			return $this->minifyJs($file);
+		}
 
 	}
 
@@ -164,10 +182,8 @@ class Minify {
      * @return mixed Value.
      */
 	public function minifyJs($files)
-	{
-		$this->files = $this->process($files);
-		$this->path = public_path() . \Config::get('minify::js_path');		
-		$this->buildpath = $this->path . \Config::get('minify::js_build_path');
+	{		
+		$this->files = $files;
 
 		$this->createBuildPath();	
 				

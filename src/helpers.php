@@ -3,7 +3,7 @@
 if ( ! function_exists('stylesheets'))
 {
     /**
-     * stylesheet
+     * stylesheets
      * 
      * @param mixed $args Description.
      *
@@ -13,25 +13,22 @@ if ( ! function_exists('stylesheets'))
     function stylesheets($id='default',$attr=array('media'=>''))
     {
         return \HTML::style(App::make('minify')->process('css',$id),$attr);
+    }
+}
 
-        
-        // if (App::environment() !== 'local')
-           
-
-        // $args = Config::get('minify::css');
-
-   
-        // $args = cast_to_array($args['default']);
-
-        // $path = Config::get('minify.css_path', Config::get('minify::css_path', '/css/'));
-
-        // $return = '';
-        // foreach ($args as $arg)
-        // {
-        //     $return .= \HTML::style($path . $arg,$attr);
-        // }
-
-        // return $return;
+if ( ! function_exists('scripts'))
+{
+    /**
+     * scripts
+     * 
+     * @param mixed $args Description.
+     *
+     * @access public
+     * @return mixed Value.
+     */
+    function scripts($id='default')
+    {
+        return \HTML::script(App::make('minify')->process('js',$id));
     }
 }
 
@@ -81,3 +78,26 @@ if ( ! function_exists('cast_to_array'))
         return $args;    
     }
 }
+
+    // function stylesheets($id='default',$attr=array('media'=>''))
+    // {
+
+        
+    //     if (App::environment() !== 'local')
+           
+
+    //     $args = Config::get('minify::css');
+
+   
+    //     $args = cast_to_array($args['default']);
+
+    //     $path = Config::get('minify.css_path', Config::get('minify::css_path', '/css/'));
+
+    //     $return = '';
+    //     foreach ($args as $arg)
+    //     {
+    //         $return .= \HTML::style($path . $arg,$attr);
+    //     }
+
+    //     return $return;
+    // }
