@@ -26,9 +26,16 @@ if ( ! function_exists('scripts'))
      * @access public
      * @return mixed Value.
      */
-    function scripts($id='default')
+    function scripts($id='default',$path=true)
     {
-        return \HTML::script(App::make('minify')->process('js',$id));
+        if($path)
+        {
+            return App::make('minify')->process('js','default');
+        }
+        else
+        {
+            return \HTML::script(App::make('minify')->process('js',$id));
+        }
     }
 }
 
