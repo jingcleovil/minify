@@ -31,12 +31,6 @@ return array(
             'style.css'
         )
     ),
-    
-    'js' => array(
-        'default' => array(
-            'script.js'
-        )
-    ),
 
     'css3_browsers' => array(
             "Internet Explorer" => 9,
@@ -44,6 +38,21 @@ return array(
             "Opera"     =>  9,
             "Apple Safari"    =>  4,
             "Google Chrome"    =>  4,
+    ),
+
+    /*
+    |--------------------------------------------------------------------------
+    | JS Files
+    |--------------------------------------------------------------------------
+    |
+    | Load js files
+    |
+    */
+
+    'js' => array(
+        'default' => array(
+            'script.js'
+        )
     ),
 
 	/*
