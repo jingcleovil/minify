@@ -27,6 +27,7 @@ return array(
     */
     'css' => array(
         'default' => array(
+            
             'style.css'
         )
     ),
@@ -50,7 +51,8 @@ return array(
 
     'js' => array(
         'default' => array(
-     
+            
+       
             'script.js',
         )
     ),

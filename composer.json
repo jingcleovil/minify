@@ -10,7 +10,7 @@
     "require": {
         "php": ">=5.3.0",
         "illuminate/support": "4.1.x",
-        "natxet/cssmin": "dev-master",
+        "natxet/CssMin": "dev-master",
         "linkorb/jsmin-php": "dev-master"
     },
     "autoload": {
