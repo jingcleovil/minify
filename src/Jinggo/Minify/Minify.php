@@ -295,12 +295,13 @@ class Minify {
 		return $filetime;
 	}
 
-	private function getBrowser() 
+	public function getBrowser() 
     { 
         $u_agent = $_SERVER['HTTP_USER_AGENT']; 
         $bname = 'Unknown';
         $platform = 'Unknown';
         $version= "";
+        $ub = "";
 
         //First get the platform?
         if (preg_match('/linux/i', $u_agent)) {
@@ -379,6 +380,26 @@ class Minify {
             'platform'  => $platform
             //'pattern'    => $pattern
         );
+    }
+
+    public function restrictBrowser($browser,$version)
+    {
+    	$cbrowser = $this->getBrowser();
+
+    	$restricted = array("Internet Explorer");
+
+    	if(in_array($browser,$restricted))
+    	{
+    		if(isset($cbrowser['name']) && $cbrowser['name'] === $browser)
+    		{
+    			if(isset($cbrowser['version']) && $cbrowser['version'] <= $version)
+    			{
+    				return false;
+    			}
+    		}
+    	}
+
+    	return true;
     }
 
 }

@@ -86,6 +86,26 @@ if ( ! function_exists('cast_to_array'))
     }
 }
 
+
+if ( ! function_exists('browser'))
+{
+    /**
+     * cast_to_array
+     * 
+     * @param mixed $args Description.
+     *
+     * @access public
+     * @return mixed Value.
+     */
+    function browser($args)
+    {
+        return App::make('minify')->getBrowser();    
+    }
+}
+
+
+
+
     // function stylesheets($id='default',$attr=array('media'=>''))
     // {
 

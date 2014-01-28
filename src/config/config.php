@@ -27,7 +27,6 @@ return array(
     */
     'css' => array(
         'default' => array(
-            'bootstrap.css',
             'style.css'
         )
     ),
@@ -51,7 +50,8 @@ return array(
 
     'js' => array(
         'default' => array(
-            'script.js'
+     
+            'script.js',
         )
     ),
 

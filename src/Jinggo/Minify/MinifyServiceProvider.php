@@ -28,9 +28,16 @@ class MinifyServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+
 		$this->app['minify'] = $this->app->share(function($app)
         {
             return new Minify;
+        });
+		
+		$this->app->booting(function()
+        {
+            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+            $loader->alias('Minify', 'Jinggo\Minify\Facades\Minify');
         });
 	}
 
