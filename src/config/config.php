@@ -51,8 +51,7 @@ return array(
 
     'js' => array(
         'default' => array(
-            
-       
+    
             'script.js',
         )
     ),
