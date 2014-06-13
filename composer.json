@@ -11,7 +11,7 @@
         "php": ">=5.4.0",
         "illuminate/support": "4.1.x",
         "linkorb/jsmin-php": "dev-master",
-        "natxet/CssMin": "dev-master"
+        "natxet/cssmin": "dev-master"
     },
     "autoload": {
         "psr-0": {
